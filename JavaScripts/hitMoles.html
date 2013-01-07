@@ -18,7 +18,7 @@ li {list-style:none;}
 <h1>Hit Moles Game</h1>
 </div>
 <div id="content">
-<img id="hammer" src="Hammer_Smith's_Hammer_1.png" style="position: absolute;" alt="" />
+<img id="hammer" src="Hammer_1.png" style="position: absolute;" alt="" />
 <canvas id="canvas" width="650" height="400" style="background:green"></canvas>
 <script>
     //Get canvas
@@ -66,8 +66,15 @@ li {list-style:none;}
     $("#hammer").css({left:e.pageX, top:e.pageY});
     }*/
     document.getElementById("content").onmousemove = function(e) {
-    document.getElementById("hammer").style.top = e.pageY*1 - 50 + "px";
-    document.getElementById("hammer").style.left = e.pageX*1 - 50 + "px";
+    document.getElementById("hammer").style.top = e.pageY*1 - 110 + "px";
+    document.getElementById("hammer").style.left = e.pageX*1 - 20 + "px";
+    }
+    
+    document.getElementById("content").onmousedown = function(e) {
+    document.getElementById("hammer").src="Hammer_2.png";
+    }
+    document.getElementById("content").onmouseup = function(e) {
+    document.getElementById("hammer").src="Hammer_1.png";
     }
 </script>
 </div>
