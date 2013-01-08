@@ -73,17 +73,31 @@ li {list-style:none;}
     document.getElementById("content").onmousemove = function(e) {
         document.getElementById("hammer").style.top = e.pageY*1 - 110 + "px";
         document.getElementById("hammer").style.left = e.pageX*1 - 20 + "px";
+        //document.getElementById('cursorX').value = e.pageX;
+        //document.getElementById('cursorY').value = e.pageY;
     }
     
     document.getElementById("content").onmousedown = function(e) {
-	timers=0;
+        var hitsuccuess=false;
+        for(i=0;i<holesNum;i++)
+        {
+            if((e.pageX>(holes[moleId].x-90))&&(e.pageX<(holes[moleId].x-50))&&(e.pageY>(holes[moleId].y+10))&&(e.pageY<(holes[moleId].y+80)))
+            {
+                hitsuccuess=true;
+                break;
+            }
+        }
+        if(hitsuccuess)
+        {
+            timers=0;
         
-        ctx.clearRect(0,0,650,400);
-        init();
+            ctx.clearRect(0,0,650,400);
+            init();
 
-        var mole=new Image();
-        mole.src="mole_2.gif";
-        ctx.drawImage(mole, holes[moleId].x-45, holes[moleId].y-70);
+            var mole=new Image();
+            mole.src="mole_2.gif";
+            ctx.drawImage(mole, holes[moleId].x-45, holes[moleId].y-70);
+        }
         document.getElementById("hammer").src="Hammer_2.png";
     }
     
@@ -117,5 +131,9 @@ li {list-style:none;}
 <div id="footer">Copyright Deng Haijun 2013</div>
 </div>
 </script>
+<!--<input type="text" id="cursorX" size="3"> X-position of the mouse cursor
+<br /><br />
+<input type="text" id="cursorY" size="3"> Y-position of the mouse cursor
+-->
 </body>
 </html>
