@@ -18,9 +18,6 @@ li {list-style:none;}
 <h1>Hit Moles Game</h1>
 </div>
 <div id="content">
-<!--
-<img id="mole" src="mole_2.gif" style="position: absolute;" alt="" />
--->
 <img id="hammer" src="Hammer_1.png" style="position: absolute;" alt="" />
 <canvas id="canvas" width="650" height="400" style="background:green"></canvas>
 <script>
@@ -64,45 +61,47 @@ li {list-style:none;}
     };
     
     function init(){
-    /*
-        BezierEllipse2(ctx,100, 150, 50, 20);
-        BezierEllipse2(ctx,250, 150, 50, 20);
-        BezierEllipse2(ctx,400, 150, 50, 20);
-        BezierEllipse2(ctx,550, 150, 50, 20);
-        BezierEllipse2(ctx,175, 300, 50, 20);
-        BezierEllipse2(ctx,325, 300, 50, 20);
-        BezierEllipse2(ctx,475, 300, 50, 20);*/
         for(i=0;i<holesNum;i++)
             BezierEllipse2(ctx, holes[i].x, holes[i].y, 50, 20);
     }
     
     init();
     
+    timer=0;
+    var moleId;
+
     document.getElementById("content").onmousemove = function(e) {
         document.getElementById("hammer").style.top = e.pageY*1 - 110 + "px";
         document.getElementById("hammer").style.left = e.pageX*1 - 20 + "px";
     }
     
     document.getElementById("content").onmousedown = function(e) {
+	timers=0;
+        
+        ctx.clearRect(0,0,650,400);
+        init();
+
+        var mole=new Image();
+        mole.src="mole_2.gif";
+        ctx.drawImage(mole, holes[moleId].x-45, holes[moleId].y-70);
         document.getElementById("hammer").src="Hammer_2.png";
     }
     
     document.getElementById("content").onmouseup = function(e) {
         document.getElementById("hammer").src="Hammer_1.png";
     }
-    timer=0;
+
     function showMoles(){
         //if(running)
         if(timer==10)
         {
             ctx.clearRect(0,0,650,400);
             init();
-            var moleId = Math.floor(Math.random()*7);
+            moleId = Math.floor(Math.random()*7);
             
-            var mole=new Image();
-            mole.src="mole.gif";
-            //ctx.drawImage(mole, holes[moleId].x, holes[moleId].y);
-            ctx.drawImage(mole, holes[moleId].x-50, holes[moleId].y-70);
+	    var mole=new Image();
+            mole.src="mole_1.gif";
+            ctx.drawImage(mole, holes[moleId].x-45, holes[moleId].y-70);
         }
         else if(timer>200)
         {
