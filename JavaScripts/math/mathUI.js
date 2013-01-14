@@ -6,7 +6,7 @@
 
  var mathUI = {
   //ui line color
-  color: ‘#000′,
+  color: '#000',
  
   /**
    * set color
@@ -23,8 +23,8 @@
    **/
   printDot: function(startX, startY, endX, endY)
   {
-   document.write((’<span style=”position: absolute; left:’ + startX + ‘;top:’ + startY + ‘;width:’ + (endX - startX) + ‘;height:’ +
-   (endY - startY) + ‘;font-size: 1px; background-color: ‘ + this.color + ‘;”></span>’));
+   document.write(('<span style="position: absolute; left:' + startX + ';top:' + startY + ';width:' + (endX - startX) + ';height:' +
+   (endY - startY) + ';font-size: 1px; background-color: ' + this.color + ';”></span>'));
   },
 
   /**
