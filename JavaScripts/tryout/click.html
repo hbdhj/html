@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function displayP1()
+{
+var p1element=document.getElementById("div1");
+p1element.style.display = "block";
+var p2element=document.getElementById("div2");
+p2element.style.display = "none";
+}
+function displayP2()
+{
+var p1element=document.getElementById("div1");
+p1element.style.display = "none";
+var p2element=document.getElementById("div2");
+p2element.style.display = "block";
+}
+</script>
+</head>
+<body>
+
+<div id="div1">
+<p id="p1">This is paragraph 1.</p>
+<p id="p2">This is paragraph 2.</p>
+</div>
+<div id="div2">
+<p id="p3">This is paragraph 3.</p>
+<p id="p4">This is paragraph 4.</p>
+</div>
+<div id="div3">
+<button onclick="displayP1()">P1</button>
+<button onclick="displayP2()">P2</button>
+</div>
+
+
+</body>
+</html>
